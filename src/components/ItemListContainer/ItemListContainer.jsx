@@ -1,8 +1,11 @@
 import React from 'react'
 
-const ItemListContainer = () => {
+const ItemListContainer = ({greeting,titulo}) => {
   return (
-    <div>itemListContainer</div>
+    <div>
+      {greeting}
+      {titulo}
+    </div>
   )
 }
 
