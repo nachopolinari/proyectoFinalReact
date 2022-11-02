@@ -1,24 +1,40 @@
 import React from 'react'
-
-
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import ItemList from '../ItemList/ItemList'
 import { gFetch } from '../../helpers/gFetch'
-
-
 
 const ItemListContainer = ({ greeting, titulo }) => {
 
-  useEffect(() =>{
+  const [productos, setProductos] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
     gFetch()
-      .then(resSgte => console.log(resSgte))
+      .then(resSgte => setProductos(resSgte))
       .catch(err => console.log(err))
-      .finally(() => console.log('finalizo la promesa'))
+      .finally(() => setLoading(false))
   }, [])
+
+  console.log(productos)
 
   return (
     <>
       {greeting}
       {titulo}
+
+      {loading ?
+        <h2>Cargando...</h2>
+        :
+        <ItemList/>
+
+
+
+
+
+
+        )}
+
+
     </>
   )
 }
