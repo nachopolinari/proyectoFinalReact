@@ -1,6 +1,5 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import ItemList from '../ItemList/ItemList'
 import { gFetch } from '../../helpers/gFetch'
 
 const ItemListContainer = ({ greeting, titulo }) => {
@@ -25,7 +24,19 @@ const ItemListContainer = ({ greeting, titulo }) => {
       {loading ?
         <h2>Cargando...</h2>
         :
-        <ItemList/>
+        productos.map(products => <div key={products.id}>
+            <div className="card" >
+              <img src={products.picture} className="card-img-top" alt="..." />
+              <div className="card-body">
+                <h5 className="card-title">{products.name} </h5>
+                <p className="card-text">Color: <br />
+                Precio: ${products.price}  <br />
+                Categoria:  </p>
+                <a href="#" className="btn btn-primary">Ver detalles</a>
+                <button>Comprar</button>
+              </div>
+            </div>
+          </div>
 
 
 
