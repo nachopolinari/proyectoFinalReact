@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import ButtonBuy from '../../ButtonBuy/ButtonBuy'
 import ItemDetail from '../../ItemDetail/ItemDetail'
 
 const ItemDetailContainer = () => {
@@ -11,7 +12,9 @@ console.log(idProducto)
 
   return (
     <div>
-        <ItemDetail /*producto={producto}*/ />
+        <ItemDetail producto={producto} />
+
+        <ButtonBuy/>
     </div>
   )
 }

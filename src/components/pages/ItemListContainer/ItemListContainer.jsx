@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { gFetch } from '../../../helpers/gFetch'
+import Intercambiabilidad from '../../ButtonBuy/ButtonBuy'
+import ButtonBuy from '../../ButtonBuy/ButtonBuy'
 
 
 const ItemListContainer = ({ greeting, titulo }) => {
@@ -47,7 +49,7 @@ const ItemListContainer = ({ greeting, titulo }) => {
                                 <p className="card-text">Color: <br />
                                     Precio: ${products.price}  <br />
                                     Categoria:  </p>
-                                <button>Comprar</button>
+                                <ButtonBuy/>
                             </div>
                         </div>
                     </Link>

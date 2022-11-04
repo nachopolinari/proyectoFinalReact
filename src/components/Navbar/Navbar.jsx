@@ -11,9 +11,9 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <Link to='/category/vibro' className="nav-item">Vibro</Link>
-                        <Link to='/category/pLug' className="nav-item">Plug</Link>
-                        <Link to='/category/satisfacer' className="nav-item">Satisfacer</Link>
+                        <Link to='/category/vibros' className="nav-item">Vibros</Link>
+                        <Link to='/category/pLugs' className="nav-item">Plugs</Link>
+                        <Link to='/category/satisfacers' className="nav-item">Satisfacers</Link>
                         <Link to='/contacto' className="nav-item">Contacto</Link>
                         <Link to='/cart' className="nav-item">Carrito</Link>
                     </ul>
