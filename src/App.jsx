@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
+
+import CartContextProvider from './Context/CartContext';
 import ItemListContainer from './components/pages/ItemListContainer/ItemListContainer'
 import Navbar from './components/Navbar/Navbar'
 import ItemDetailContainer from './components/pages/ItemDetailContainer/ItemDetailContainer';
@@ -10,17 +12,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 function App() {
+    
     return (
-        <BrowserRouter>
-            <Navbar />
-            <Routes>
-                <Route path='/' element={<ItemListContainer greeting={'Hello World'} titulo={'item List Container'} />} />
-                <Route path='/category/:idCategory' element={<ItemListContainer greeting={'Hello World'} titulo={'item List Container'} />} />
-                <Route path='/detalle/:idProducto' element={<ItemDetailContainer />} />
-                <Route path='/cart' element={<CartPages />} />
-                <Route path='/404' element={<NotFound404 />} />
-                <Route path='*' element={<Navigate to='/404' />} />
-            </Routes>
-        </BrowserRouter>)
-}
+        <CartContextProvider>
+            <BrowserRouter>
+                <Navbar />
+                <Routes>
+                    <Route path='/' element={<ItemListContainer greeting={'Hello World'} titulo={'item List Container'} />} />
+                    <Route path='/category/:idCategory' element={<ItemListContainer greeting={'Hello World'} titulo={'item List Container'} />} />
+                    <Route path='/detail/:idProduct' element={<ItemDetailContainer />} />
+                    <Route path='/cart' element={<CartPages />} />
+                    <Route path='/404' element={<NotFound404 />} />
+                    <Route path='*' element={<Navigate to='/404' />} />
+                </Routes>
+            </BrowserRouter>
+        </CartContextProvider>
+)}
 export default App

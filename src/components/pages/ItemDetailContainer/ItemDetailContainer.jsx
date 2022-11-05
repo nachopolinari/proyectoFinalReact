@@ -3,18 +3,21 @@ import { useParams } from 'react-router-dom'
 import ButtonBuy from '../../ButtonBuy/ButtonBuy'
 import ItemDetail from '../../ItemDetail/ItemDetail'
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = (products) => {
 
 //estados
-const {idProducto} = useParams()
-console.log(idProducto)
+// useparams captura la ruta
+const {idProduct} = useParams()
+
+
 //userEffect llamando a la API mock
 
   return (
     <div>
-        <ItemDetail producto={producto} />
+      <p>ItemDetailContainer</p>
+        <ItemDetail products={products} />
 
-        <ButtonBuy/>
+        
     </div>
   )
 }

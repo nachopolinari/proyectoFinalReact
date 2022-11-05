@@ -2,34 +2,33 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { gFetch } from '../../../helpers/gFetch'
-import Intercambiabilidad from '../../ButtonBuy/ButtonBuy'
-import ButtonBuy from '../../ButtonBuy/ButtonBuy'
-
+import Loading from '../../Loading/Loading'
+import ItemList from '../../ItemList/ItemList'
 
 const ItemListContainer = ({ greeting, titulo }) => {
 
-    const [productos, setProductos] = useState([])
+    const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
 
-
+// useparams captura la ruta
     const { idCategory } = useParams()
-    console.log(idCategory)
+    
 
     useEffect(() => {
         if (idCategory) {
             gFetch()
-                .then(resSgte => setProductos(resSgte.filter(producto=>producto.category===idCategory)))
+                .then(resSgte => setProducts(resSgte.filter(products => products.category === idCategory)))
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false))
         } else {
             gFetch()
-                .then(resSgte => setProductos(resSgte))
+                .then(resSgte => setProducts(resSgte))
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false))
         }
     }, [idCategory])
 
-    console.log(productos)
+    console.log(products)
 
     return (
         <>
@@ -37,25 +36,10 @@ const ItemListContainer = ({ greeting, titulo }) => {
             {titulo}
 
             {loading ?
-                <h2>Cargando...</h2>
+                <Loading />
                 :
-                productos.map(products => <div
-                    key={products.id}>
-                    <Link to={`/detalle/${products.id}`}>
-                        <div className="card" >
-                            <img src={products.picture} className="card-img-top" alt="..." />
-                            <div className="card-body">
-                                <h5 className="card-title">{products.name} </h5>
-                                <p className="card-text">Color: <br />
-                                    Precio: ${products.price}  <br />
-                                    Categoria:  </p>
-                                <ButtonBuy/>
-                            </div>
-                        </div>
-                    </Link>
-                </div>
+                <ItemList products={products} />
 
-                )
             }
 
 
@@ -64,3 +48,30 @@ const ItemListContainer = ({ greeting, titulo }) => {
 }
 
 export default ItemListContainer
+
+
+
+
+
+// const [productos, setProductos] = useState([])
+// const [loading, setLoading] = useState(true)
+
+// useEffect(() => {
+//     gFetch()
+//         .then(resSgte => setProductos(resSgte))
+//         .catch(err => console.log(err))
+//         .finally(() => setLoading(false))
+// }, [])
+
+// return {
+//     <>
+//     <h2>{greeting}</h2>
+// {
+//     loading ?
+//         <h2>cargando...</h2>
+//         :
+//         products.map(products => <li key={products.id} > {products.name} </li>)
+// }
+
+// </>
+// }
