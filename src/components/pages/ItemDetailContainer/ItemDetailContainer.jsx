@@ -1,16 +1,22 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { gFetch } from '../../../helpers/gFetch'
 import ButtonBuy from '../../ButtonBuy/ButtonBuy'
 import ItemDetail from '../../ItemDetail/ItemDetail'
 
 const ItemDetailContainer = (products) => {
 
-//estados
-// useparams captura la ruta
-const {idProduct} = useParams()
+const { idProducto } = useParams()
+useEffect(() => {
+  gFetch(idProducto)
+  .then(resp => {  
+    console.log(resp)
+  })
+  .catch(err =>console.log(err))
+  .finally(() => console.log('finalizo'))
+},[])
 
-
-//userEffect llamando a la API mock
 
   return (
     <div>

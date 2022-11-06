@@ -1,9 +1,9 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
 import { gFetch } from '../../../helpers/gFetch'
 import Loading from '../../Loading/Loading'
 import ItemList from '../../ItemList/ItemList'
+import { useParams } from 'react-router-dom'
 
 const ItemListContainer = ({ greeting, titulo }) => {
 
