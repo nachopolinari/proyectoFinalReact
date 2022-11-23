@@ -18,12 +18,12 @@ function App() {
             <BrowserRouter>
                 <Navbar />
                 <Routes>
-                    <Route path='/' element={<ItemListContainer greeting={'Hello World'} titulo={'item List Container'} />} />
-                    <Route path='/category/:idCategory' element={<ItemListContainer greeting={'Hello World'} titulo={'item List Container'} />} />
-                    <Route path='/detail/:idProduct' element={<ItemDetailContainer />} />
-                    <Route path='/cart' element={<CartPage />} />
-                    <Route path='/404' element={<NotFound404 />} />
-                    <Route path='*' element={<Navigate to='/404' />} />
+                    <Route path='/' element={ <ItemListContainer greeting={'Hello World'} titulo={'item List Container'} />} />
+                    <Route path='/category/:idCategory' element={ <ItemListContainer greeting={'Hello World'} titulo={'item List Container'} />} />
+                    <Route path='/detail/:idProduct' element={ <ItemDetailContainer/> } />
+                    <Route path='/cart' element={ <CartPage />} />
+                    <Route path='/404' element={ <NotFound404 />} />
+                    <Route path='*' element={ <Navigate to='/404' />} />
                 </Routes>
             </BrowserRouter>
         </CartContextProvider>

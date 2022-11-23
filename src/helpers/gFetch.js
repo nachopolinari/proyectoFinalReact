@@ -28,18 +28,7 @@ const products = [{
 
 export const gFetch = (id) => {
     return new Promise((res, rej) => {
-
-        if (id) {
-            setTimeout( () =>  {
-                res ( products.find( prod=> prod.id === id ) )
-            }, 2000)
-
-        } else {
-            setTimeout( () => {
-                res(products)
-            }, 2000)
-        }
-
-
-    })
-}
+        setTimeout( () =>  {
+            res ( id ? products.find( prod=> prod.id === id ) : products  )
+        }, 2000)})
+    }
